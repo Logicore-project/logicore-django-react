@@ -1,0 +1,7 @@
+{% load react_tags_dev %}
+
+{% if FRONTEND_DEV_MODE %}
+  {% include_react_dev %}
+{% else %}
+  {% include "react/bundle_js.html" %}
+{% endif %}
