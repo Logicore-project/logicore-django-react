@@ -1,10 +1,11 @@
+from django.template.context_processors import static
 from django.urls import path, re_path, include
 from django.conf import settings
 from . import views
 
 
 urlpatterns = [
-    re_path(r'^(?P<path>.*)$', main_views.HomeView.as_view()),
+    re_path(r'^(?P<path>.*)$', views.HomeView.as_view()),
 ]
 
 
