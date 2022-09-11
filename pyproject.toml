@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "logicore-django-react"
+version = "1.0.0.dev1"
+authors = [
+  { name="Andrei Boltachev", email="andrewboltachev@gmail.com" },
+]
+description = "A little Python module helping to use Django and React on a single port during development and production"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/Logicore-project/logicore-django-react"
+"Bug Tracker" = "https://github.com/Logicore-project/logicore-django-react/issues"
