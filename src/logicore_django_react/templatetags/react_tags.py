@@ -8,10 +8,10 @@ register = template.Library()
 
 
 @register.inclusion_tag("logicore_django_react/include_react_css.html")
-def include_react_css(context):
+def include_react_css():
     return {"FRONTEND_DEV_MODE": getattr(settings, "FRONTEND_DEV_MODE", False)}
 
 
 @register.inclusion_tag("logicore_django_react/include_react_js.html")
-def include_react_js(context):
+def include_react_js():
     return {"FRONTEND_DEV_MODE": getattr(settings, "FRONTEND_DEV_MODE", False)}
