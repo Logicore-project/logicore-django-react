@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "logicore-django-react"
-version = "1.0.0.dev8"
+version = "1.0.0.dev9"
 authors = [
   { name="Andrei Boltachev", email="andrewboltachev@gmail.com" },
 ]
@@ -20,6 +20,11 @@ classifiers = [
 dependencies = [
   'Django < 5',
   'django-proxy == 1.2.1',
+]
+include = [
+  "src/logicore_django_react/templates/logicore_django_react/home.html",
+  "src/logicore_django_react/templates/logicore_django_react/include_react_css.html",
+  "src/logicore_django_react/templates/logicore_django_react/include_react_js.html",
 ]
 
 [project.urls]
