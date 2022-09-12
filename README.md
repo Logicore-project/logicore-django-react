@@ -4,16 +4,10 @@ A little Python module helping to use Django and React on a single port during d
 
 Serves as a foundation for [logicore-forms-django](https://github.com/Logicore-project/logicore-forms-django) project, but can be used without it
 
-
 ### Running Django and React on a single port during development
 
 TODO: Motivation
 
-### Installation:
-
-```
-python3 -m pip install logicore-django-react
-```
 ### Usage from scratch: starting a Django + React project for development
 
 1. Install Django and start the project
@@ -103,7 +97,7 @@ by
 This will make React project's built-in websocket to the right port — where the React's server
 is and not e.g. 8000.
 
-* In `scripts/start.js` comment out `openBrowser` command. Before:
+* In `frontend/scripts/start.js` comment out `openBrowser` command. Before:
 ```javascript
       openBrowser(urls.localUrlForBrowser);
 ```
@@ -114,14 +108,14 @@ after:
 which doesn't open a browser at port `3000`, 'cause we don't want direct output
 of React's dev server (it will be got by Django instead).
 
-* make the following modifications to `scripts/build.js` file
+* make the following modifications to `frontend/scripts/build.js` file
 (to make build process also integrate with Django):
   * Add to the beginning:
 ```javascript
 const rimraf = require('rimraf');
 const mkdirp = require('mkdirp');
 ```
-  * and also, install that modules:
+  * and also, install that modules (inside your `frontend` folder):
 ```commandline
 yarn add -D rimraf mkdirp
 ```
