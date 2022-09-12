@@ -2,6 +2,7 @@ from django.template.context_processors import static
 from django.urls import path, re_path, include
 from django.conf import settings
 from . import views
+from pathlib import Path
 
 
 bottom = [
@@ -16,5 +17,5 @@ if getattr(settings, "FRONTEND_DEV_MODE", False):
     ]
 else:
     top = [
-        static("/react-static/", document_root=settings.BASE_DIR / "frontend" / "build" / "react-static")
+        static("/react-static/", document_root=str(Path(settings.BASE_DIR) / "frontend" / "build" / "react-static"))
     ]
