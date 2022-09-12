@@ -6,7 +6,7 @@ from pathlib import Path
 
 
 bottom = [
-    re_path(r'^(?P<path>.*)$', views.HomeView.as_view()),
+    re_path(r'^(?P<path>.*)$', views.HomeView.as_view()) # XXX no comma at the end!
 ]
 
 
