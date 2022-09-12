@@ -38,8 +38,10 @@ git add --all :/ && git commit -m "ejected frontend"
 
 3. Install `logicore_django_react` and make use of it from your Django project:
 ```commandline
-pip install logicore_django_react
+pip install -U logicore_django_react
 ```
+(`-U` is required to ensure to get latest version)
+
 Add to `urls.py`:
 ```python
 
