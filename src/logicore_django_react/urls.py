@@ -6,16 +6,14 @@ from pathlib import Path
 
 
 bottom = [
-    re_path(r'^(?P<path>.*)$', views.HomeView.as_view()) # XXX no comma at the end!
+    re_path(r'^(?P<path>.*)$', views.HomeView.as_view()),
 ]
 
 
 if getattr(settings, "FRONTEND_DEV_MODE", False):
     top = [
         re_path(r'^(?P<path>.*\.hot-update\.(js|json))$', views.hot_update), # \.[0-9a-z]{20}
-        re_path('^react-static/(?P<path>.+)$', views.react_static)
+        re_path('^react-static/(?P<path>.+)$', views.react_static),
     ]
 else:
-    top = [
-        static("/react-static/", document_root=str(Path(settings.BASE_DIR) / "frontend" / "build" / "react-static"))
-    ]
+    top = static("/react-static/", document_root=str(Path(settings.BASE_DIR) / "frontend" / "build" / "react-static"))
