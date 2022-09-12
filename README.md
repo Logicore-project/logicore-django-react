@@ -26,6 +26,16 @@ python manage.py runserver
 ```
 and stop the development server.
 
+**Hint:** Don't forget to add minimal `.gitignore` file for Python/Django development, such as:
+```gitignore
+*.swp
+*.py[cod]
+__pycache__
+*.sqlite3
+/static/**
+/media/**
+```
+
 2. Make a React for-development installation (inside a Django folder), called `frontend`.
 Then, commit the changes and eject (we need it all): 
 ```commandline
@@ -64,6 +74,17 @@ the `LOGICORE_DJANGO_REACT_TEMPLATE` setting, which is by default set to
 
 Please see source of a corresponding template file as an example.
 
+**Important:** In order for template file and template tags to work, add `logicore_django_react` to `INSTALLED_APPS`.
+
+Also to settings, add:
+```python
+FRONTEND_DEV_MODE = os.environ.get("FRONTEND_DEV_MODE", None)
+```
+(otherwise you may see an error message).
+
+This environment variable is required to
+distinguish if Django is running in development or production mode.
+
 4. Either:
 
 * create your main app in Django (e.g. called `main`)
@@ -84,7 +105,9 @@ mkdir my_global_templates/ # here, "react" folder will automatically be added la
 mkdir my_global_static/ # here, "react" folder will automatically be added later
 ```
 
-_Hint:_ gitkeep the templates/static folders created
+_Hints:_
+ - When creating an app, don't forget to add it to `INSTALLTED_APPS`
+ - gitkeep the templates/static folders created
 
 5. Make modifications to `frontend` sub-project:
 
@@ -161,6 +184,26 @@ yarn add -D rimraf mkdirp
 and check that the path `__dirname + '/../../main/` (the `appBase`) points exactly to where your
 location for auto-generated (during the build) templates and static files is.
 This example is given for storing the files inside the folders of an app called `main` .
+
+* Finally, in `frontend/config/webpack.config.js` replace two occurrences
+of `static/media/` by `react-static/media/`:
+```javascript
+      assetModuleFilename: 'static/media/[name].[hash][ext]',
+```
+to
+```javascript
+      assetModuleFilename: 'react-static/media/[name].[hash][ext]',
+```
+and
+```javascript
+                    name: 'static/media/[name].[hash].[ext]',
+```
+to
+```javascript
+                    name: 'react-static/media/[name].[hash].[ext]',
+```
+to give specifically included static files, such as included images their own directory
+('cause `static` may be already taken by Django).
 
 6. _gitignore_ the auto-generated folders of yours:
 ```gitignore

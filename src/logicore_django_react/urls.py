@@ -1,7 +1,7 @@
 from django.conf.urls.static import static
 from django.urls import path, re_path, include
 from django.conf import settings
-from . import views
+from . import views, commons
 from pathlib import Path
 
 
@@ -10,7 +10,7 @@ bottom = [
 ]
 
 
-if getattr(settings, "FRONTEND_DEV_MODE", False):
+if commons.FRONTEND_DEV_MODE:
     top = [
         re_path(r'^(?P<path>.*\.hot-update\.(js|json))$', views.hot_update), # \.[0-9a-z]{20}
         re_path('^react-static/(?P<path>.+)$', views.react_static),
