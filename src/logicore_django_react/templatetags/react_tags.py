@@ -2,7 +2,7 @@ from django import template
 from django.utils.safestring import SafeString
 import requests, os, re
 from django.conf import settings
-from . import commons
+from .. import commons
 
 
 register = template.Library()
