@@ -13,7 +13,7 @@ bottom = [
 if getattr(settings, "FRONTEND_DEV_MODE", False):
     top = [
         re_path(r'^(?P<path>.*\.hot-update\.(js|json))$', views.hot_update), # \.[0-9a-z]{20}
-        re_path('^react-static/(?P<path>.+)$', views.react_static),
+        re_path('^react-static/(?P<path>.+)$', views.react_static)
     ]
 else:
     top = [
