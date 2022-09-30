@@ -10,6 +10,8 @@ TODO: Motivation
 
 ### Usage from scratch: starting a Django + React project for development
 
+> TODO: automated script/project template
+
 1. Install Django and start the project
 ```bash
 mkvirtualenv django_react_project1 # Or venv etc
@@ -216,3 +218,28 @@ main/static/react/**
 
 7. Add files and commit — now you should have ready-to-go setup for
 developing and deploying Django + React project on a single port!
+
+### Development
+
+In root folder:
+```bash
+export FRONTEND_DEV_MODE=1
+python manage.py runserver
+```
+
+In `frontend/` folder:
+```bash
+yarn start
+```
+
+### Production
+
+1. Build frontend and collect static
+```bash
+cd frontend/
+yarn build
+cd ..
+python manage.py collectstatic
+```
+
+2. Deploy as normal (according to Django docs)
