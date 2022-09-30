@@ -2,7 +2,7 @@
 
 A little Python module helping to use Django and React on a single port during development and production
 
-Serves as a foundation for [logicore-forms-django](https://github.com/Logicore-project/logicore-forms-django) project, but can be used without it
+Serves as a foundation for [logicore-django-react-pages](https://github.com/Logicore-project/logicore-django-react-pages) project, but can be used without it
 
 ### Running Django and React on a single port during development
 
