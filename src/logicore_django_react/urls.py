@@ -5,15 +5,15 @@ from . import views, commons
 from pathlib import Path
 
 
-bottom = [
+react_html_template_urls = [
     re_path(r'^(?P<path>.*)$', views.HomeView.as_view()),
 ]
 
 
 if commons.FRONTEND_DEV_MODE:
-    top = [
+    react_reload_and_static_urls = [
         re_path(r'^(?P<path>.*\.hot-update\.(js|json))$', views.hot_update), # \.[0-9a-z]{20}
         re_path('^react-static/(?P<path>.+)$', views.react_static),
     ]
 else:
-    top = static("/react-static/", document_root=str(Path(settings.BASE_DIR) / "frontend" / "build" / "react-static"))
+    react_reload_and_static_urls = static("/react-static/", document_root=str(Path(settings.BASE_DIR) / "frontend" / "build" / "react-static"))

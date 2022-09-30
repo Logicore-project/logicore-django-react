@@ -54,19 +54,22 @@ pip install -U logicore_django_react
 
 Add to `urls.py`:
 ```python
-
-from logicore_django_react.urls import top, bottom
+from logicore_django_react.urls import react_reload_and_static_urls, react_html_template_urls
 
 urlpatterns = [
     # ...
 ]
 
-urlpatterns = top + urlpatterns + bottom
+# add static/media endpoints here if needed
+# urlpatterns += static(...)
+
+# lastly, combine with logicore_django_react urls
+urlpatterns = react_reload_and_static_urls + urlpatterns + react_html_template_urls
 ```
 Which will add necessary views for React to work via Django:
 
-* `top` — serves hot-reload hooks and static files
-* `bottom` — global (aka _match-all_, `.*`) view, that just serves HTML template that includes React
+* `react_reload_and_static_urls` — serves hot-reload hooks and static files
+* `react_html_template_urls` — global (aka _match-all_, `.*`) view, that just serves HTML template that includes React
 
 The latter (HTML template) might be overridden by changing
 the `LOGICORE_DJANGO_REACT_TEMPLATE` setting, which is by default set to
