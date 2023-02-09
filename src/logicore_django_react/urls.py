@@ -7,7 +7,7 @@ from django.conf.urls.i18n import i18n_patterns
 
 
 react_html_template_urls = [
-    i18n_patterns(re_path(r'^(?P<path>.*)$', views.HomeView.as_view()), prefix_default_language=False),
+    *i18n_patterns(re_path(r'^(?P<path>.*)$', views.HomeView.as_view()), prefix_default_language=False),
 ]
 
 
