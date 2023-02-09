@@ -3,10 +3,11 @@ from django.urls import path, re_path, include
 from django.conf import settings
 from . import views, commons
 from pathlib import Path
+from django.conf.urls.i18n import i18n_patterns
 
 
 react_html_template_urls = [
-    re_path(r'^(?P<path>.*)$', views.HomeView.as_view()),
+    i18n_patterns(re_path(r'^(?P<path>.*)$', views.HomeView.as_view()), prefix_default_language=False),
 ]
 
 
