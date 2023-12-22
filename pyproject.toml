@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "logicore-django-react"
-version = "1.0.0.dev22"
+version = "1.0.0.dev23"
 authors = [
   { name="Andrei Boltachev", email="andrewboltachev@gmail.com" },
 ]
@@ -18,7 +18,7 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
-  'Django < 5',
+  'Django < 6',
   'django-proxy == 1.2.2',
 ]
 
